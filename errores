@@ -140,3 +140,23 @@ C:\Users\edercramirezc\DEV-ER\Angular\tracking-app\src\assets\cart-icon.svg
 ruta relativa
 tracking-app\src\assets\cart-icon.svg
 tracking-app/src/assets/cart-icon.svg
+
+=========================================================
+error intentando caragar el assets
+PS C:\Users\edercramirezc\DEV-ER\Angular\tracking-app> ng serve
+Component HMR has been enabled, see https://angular.dev/hmr for more info.
+Application bundle generation failed. [2.032 seconds]
+
+X [ERROR] Could not resolve "assets/icons/cart-icon.svg" [plugin angular-css-resource]
+
+    src/app/components/tracking-timeline.component.scss:50:24:
+      50 │   background-image: url("assets/icons/cart-icon.svg");
+         ╵                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  You can mark the path "assets/icons/cart-icon.svg" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+  Preprocessor stylesheets may not show the exact file location of the error.
+
+
+Watch mode enabled. Watching for file changes...
+
+Rta/
