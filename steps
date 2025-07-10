@@ -1,0 +1,11 @@
+Crear el Proyecto
+ng new tracking-app --standalone --routing --style=scss
+cd tracking-app
+
+Crear el Componente de Timeline
+ng g component components/tracking-timeline --standalone --flat
+
+Estructura Básica del Componente
+tracking-timeline.component.ts
+
+Git
