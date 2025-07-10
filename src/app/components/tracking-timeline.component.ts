@@ -1,13 +1,10 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common'; // 👈 importa CommonModule
-import { signal } from '@angular/core';
-
-
+import { Component, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-tracking-timeline',
   standalone: true,
-  imports: [CommonModule], // 👈 agrégalo aquí
+  imports: [CommonModule],
   templateUrl: './tracking-timeline.component.html',
   styleUrls: ['./tracking-timeline.component.scss'],
 })
@@ -20,19 +17,17 @@ export class TrackingTimelineComponent {
     { label: 'Entregado', date: '17/02/2024 8 a.m. - 10 a.m.' }
   ];
 
-  //currentStep = 0;
-  currentStep = signal(0);
-
+  currentStep = signal(0); // 👈 Signal en uso
 
   nextStep() {
-    if (this.currentStep < this.steps.length - 1) {
-      this.currentStep++;
+    if (this.currentStep() < this.steps.length - 1) {
+      this.currentStep.set(this.currentStep() + 1); // ✅ correcto uso
     }
   }
 
   prevStep() {
-    if (this.currentStep > 0) {
-      this.currentStep--;
+    if (this.currentStep() > 0) {
+      this.currentStep.set(this.currentStep() - 1); // ✅ correcto uso
     }
   }
 }

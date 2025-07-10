@@ -1,6 +1,6 @@
 <div class="timeline-container">
   <div class="timeline-line">
-    <div class="cart-icon" [style.left.%]="(currentStep() * 25)"></div>
+    <div class="cart-icon" [style.left.%]="currentStep() * 25"></div>
     <div class="timeline-step" *ngFor="let step of steps; let i = index">
       <div [class.active]="i <= currentStep()">
         <div class="circle"></div>
