@@ -1,6 +1,6 @@
 <div class="timeline-container">
-  <!-- Línea del timeline -->
   <div class="timeline-line">
+    <!-- <div class="cart-icon" [style.left.%]="(100 / (steps().length - 1)) * currentStep()"></div> -->
     <div class="cart-icon" [style.left.%]="(100 / (steps().length - 1)) * currentStep()">      
       <svg width="53" height="77" viewBox="0 0 53 77" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <rect width="53" height="77" rx="16" fill="url(#pattern0_7362_1947)"/>
@@ -12,19 +12,15 @@
     </defs>
     </svg>
     </div>
-    <!-- <div class="cart-icon" [style.left.%]="(100 / (steps().length - 1)) * currentStep()"></div> -->
-
-
     <div class="timeline-step" *ngFor="let step of steps(); let i = index">
-      <div [class.active]="i <= currentStep()">
-        <div class="circle"></div>
-        <p class="label">{{ step.label }}</p>
-        <p class="date">{{ step.date }}</p>
+      <div class="step-wrapper" [class.active]="i <= currentStep()">
+        <div class="dot"></div>
+        <div class="label">{{ step.label }}</div>
+        <div class="date">{{ step.date }}</div>
       </div>
     </div>
   </div>
 
-  <!-- ✅ Controles por fuera de la línea -->
   <div class="controls">
     <button (click)="prevStep()">Anterior</button>
     <button (click)="nextStep()">Siguiente</button>

@@ -54,7 +54,12 @@ Funciona igual visualmente, pero ya está listo para una conexión real
 
 
 =====================================================================
+ 3. Tips para perfeccionar
+Usa rem en vez de px para mejor escalabilidad.
 
+Revisa que el cart-icon.svg esté correctamente ubicado en src/assets/icons/.
+
+Usa fuentes modernas con font-family: 'Inter', sans-serif; o Roboto.
 
 =============================================
 Microfrontend (Opcional)
