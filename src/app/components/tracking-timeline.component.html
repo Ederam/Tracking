@@ -1,1 +1,17 @@
-<p>tracking-timeline works!</p>
+<div class="timeline-container">
+  <div class="timeline-line">
+    <div class="cart-icon" [style.left.%]="(currentStep() * 25)"></div>
+    <div class="timeline-step" *ngFor="let step of steps; let i = index">
+      <div [class.active]="i <= currentStep()">
+        <div class="circle"></div>
+        <p class="label">{{ step.label }}</p>
+        <p class="date">{{ step.date }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="controls">
+  <button (click)="prevStep()">Anterior</button>
+  <button (click)="nextStep()">Siguiente</button>
+</div>

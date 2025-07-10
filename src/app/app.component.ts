@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { TrackingTimelineComponent } from './components/tracking-timeline.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  standalone: true,
+  imports: [TrackingTimelineComponent],
+  template: '<app-tracking-timeline />',
 })
-export class AppComponent {
-  title = 'tracking-app';
-}
+export class AppComponent {}

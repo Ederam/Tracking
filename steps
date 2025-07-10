@@ -9,3 +9,28 @@ Estructura Básica del Componente
 tracking-timeline.component.ts
 
 Git
+git init
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Ederam/Tracking.git
+git push -u origin main
+
+ Template HTML con Animación
+tracking-timeline.component.html
+
+Estilos Animados SCSS
+tracking-timeline.component.scss
+
+Puedes usar un ícono .svg o .png de carrito en src/assets.
+
+Usar el Componente
+app.component.ts
+
+Microfrontend (Opcional)
+Si deseas convertir este módulo en un microfrontend:
+Usa Module Federation con @angular-architects/module-federation.
+Usa standalone: true para cada componente.
+Expón el componente principal como entry en el webpack.config.js.
+
+

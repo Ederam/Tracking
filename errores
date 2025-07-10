@@ -1,0 +1,31 @@
+===============================================================
+ERRORES EN LA COMPILACION
+PS C:\Users\edercramirezc\DEV-ER\Angular\tracking-app> ng serve
+Component HMR has been enabled, see https://angular.dev/hmr for more info.
+
+Application bundle generation complete. [2.106 seconds]
+
+▲ [WARNING] NG8103: The `*ngFor` directive was used in the template, but neither the `NgFor` directive nor the `CommonModule` was imported. Use Angular's built-in control flow @for or make sure that either the `NgFor` directive or the `CommonModule` is included in the `@Component.imports` array of this component. [plugin angular-compiler]
+
+    src/app/components/tracking-timeline.component.html:4:32:
+      4 │     <div class="timeline-step" *ngFor="let step of steps; let i = i...
+        ╵                                 ~~~~~
+
+  Error occurs in the template of component TrackingTimelineComponent.
+
+    src/app/components/tracking-timeline.component.ts:6:15:
+      6 │   templateUrl: './tracking-timeline.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Watch mode enabled. Watching for file changes...
+NOTE: Raw file sizes do not reflect development server per-request transformations.
+  ➜  Local:   http://localhost:4200/
+  ➜  press h + enter to show help
+
+Rta/
+Debes importar CommonModule dentro de tu componente TrackingTimelineComponent.
+
+✅ Abre tracking-timeline.component.ts y modifica así:
+===============================================================
+===============================================================
