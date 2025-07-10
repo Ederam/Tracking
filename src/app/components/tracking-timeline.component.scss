@@ -1,14 +1,17 @@
 .timeline-container {
-  margin: 2rem;
+  margin: 2rem auto;
+  width: 100%;
+  max-width: 1000px;
   position: relative;
-  height: 150px;
 }
 
 .timeline-line {
   position: relative;
   height: 4px;
   background: #ccc;
-  top: 50px;
+  margin-top: 50px;
+  margin-bottom: 80px; // ✅ separa los botones
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,8 +19,8 @@
 
 .timeline-step {
   flex: 1;
-  text-align: center;
   position: relative;
+  text-align: center;
 
   .circle {
     width: 16px;
@@ -31,11 +34,13 @@
   .label {
     font-size: 0.8rem;
     margin-top: 8px;
+    white-space: nowrap;
   }
 
   .date {
     font-size: 0.7rem;
     color: #666;
+    white-space: nowrap;
   }
 
   &.active .circle {
@@ -45,7 +50,8 @@
 
 .cart-icon {
   position: absolute;
-  top: -15px;
+  top: -20px;
+  left: 0;
   transition: left 0.5s ease-in-out;
 
   svg {
@@ -54,4 +60,9 @@
   }
 }
 
-
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 20px; // ✅ extra separación debajo del timeline
+}
