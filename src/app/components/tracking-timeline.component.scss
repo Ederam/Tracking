@@ -44,12 +44,14 @@
 }
 
 .cart-icon {
-  width: 30px;
-  height: 30px;
-  background-image: url('/assets/cart-icon.png'); // Usa un ícono de carrito
-  background-size: contain;
-  background-repeat: no-repeat;
   position: absolute;
   top: -15px;
   transition: left 0.5s ease-in-out;
+
+  svg {
+    width: 32px;
+    height: 32px;
+  }
 }
+
+

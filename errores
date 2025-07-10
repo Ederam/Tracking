@@ -121,3 +121,22 @@ Opción 1: Usar Signal Correctamente (Recomendado para Angular 16+)
 🔧 tracking-timeline.component.ts
 
 ===============================================================
+Error al cargar el icono
+Rta/
+Si sigue fallando
+Revisa esto en angular.json (debería estar así por defecto):
+
+json
+Copiar
+Editar
+"assets": [
+  "src/favicon.ico",
+  "src/assets"
+]
+Y que no lo hayas movido por error a una subcarpeta.
+
+ruta del archivo completa
+C:\Users\edercramirezc\DEV-ER\Angular\tracking-app\src\assets\cart-icon.svg
+ruta relativa
+tracking-app\src\assets\cart-icon.svg
+tracking-app/src/assets/cart-icon.svg

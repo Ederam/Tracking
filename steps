@@ -33,4 +33,15 @@ Usa Module Federation con @angular-architects/module-federation.
 Usa standalone: true para cada componente.
 Expón el componente principal como entry en el webpack.config.js.
 
+Usar un ícono SVG directamente en tu HTML
+📂 Paso 1: Crea el archivo
+Guarda este archivo como src/assets/cart-icon.svg:
 
+xml
+Copiar
+Editar
+<!-- cart-icon.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#4caf50" viewBox="0 0 24 24">
+  <path d="M7 18c-1.104 0-1.99.896-1.99 2s.886 2 1.99 2 2-.896 2-2-.896-2-2-2zm0 2zm10-2c-1.104 0-1.99.896-1.99 2s.886 2 1.99 2 2-.896 2-2-.896-2-2-2zm0 2zm-11.016-5.125l1.016-1.125h10.484c.74 0 1.387-.403 1.723-1.03l3.62-6.845c.112-.21.169-.442.169-.675 0-.828-.672-1.5-1.5-1.5h-16.517l-.949-2h-2.013v2h1l3.6 7.59-1.35 1.45c-.39.4-.6.94-.6 1.5 0 1.104.896 2 2 2h12v-2h-11.484z"/>
+</svg>
+📂 Paso 2: 
