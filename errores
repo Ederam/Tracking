@@ -28,4 +28,96 @@ Debes importar CommonModule dentro de tu componente TrackingTimelineComponent.
 
 ✅ Abre tracking-timeline.component.ts y modifica así:
 ===============================================================
+Error al compilar de nuevo
+PS C:\Users\edercramirezc\DEV-ER\Angular\tracking-app> ng serve
+Component HMR has been enabled, see https://angular.dev/hmr for more info.
+Application bundle generation failed. [2.151 seconds]
+
+X [ERROR] NG9: This expression is not callable.
+  Type 'Number' has no call signatures. [plugin angular-compiler]
+
+    src/app/components/tracking-timeline.component.html:3:44:
+      3 │ ...<div class="cart-icon" [style.left.%]="(currentStep() * 25)"></div>
+        ╵                                            ~~~~~~~~~~~
+
+  Error occurs in the template of component TrackingTimelineComponent.
+
+    src/app/components/tracking-timeline.component.ts:8:15:
+      8 │   templateUrl: './tracking-timeline.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] NG9: This expression is not callable.
+  Type 'Number' has no call signatures. [plugin angular-compiler]
+
+    src/app/components/tracking-timeline.component.html:5:32:
+      5 │       <div [class.active]="i <= currentStep()">
+        ╵                                 ~~~~~~~~~~~
+
+  Error occurs in the template of component TrackingTimelineComponent.
+
+    src/app/components/tracking-timeline.component.ts:8:15:
+      8 │   templateUrl: './tracking-timeline.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Watch mode enabled. Watching for file changes...
+Rta/
+Perfecto, este nuevo error se debe a que cambiaste el tipo de currentStep de un signal a un número común (number) —lo cual está bien—, pero en el HTML todavía lo estás usando como si fuera un signal, con currentStep().
+
+Alternativa: Si querías usar signal
+Si en realidad sí querías usar signal como en el primer ejemplo, entonces debes importar signal de Angular y mantener currentStep() con paréntesis:
+
+ts
+Copiar
+Editar
+import { signal } from '@angular/core';
+
+currentStep = signal(0);
+Y en el HTML sí va con paréntesis:
+
+html
+Copiar
+Editar
+[style.left.%]="currentStep() * 25"
+[class.active]="i <= currentStep()"
+===============================================================
+Se dejo con el signal pero sale error
+PS C:\Users\edercramirezc\DEV-ER\Angular\tracking-app> ng serve
+Component HMR has been enabled, see https://angular.dev/hmr for more info.
+Application bundle generation failed. [1.834 seconds]
+
+X [ERROR] TS2365: Operator '<' cannot be applied to types 'WritableSignal<number>' and 'number'. [plugin angular-compiler]
+
+    src/app/components/tracking-timeline.component.ts:28:8:
+      28 │     if (this.currentStep < this.steps.length - 1) {
+         ╵         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2356: An arithmetic operand must be of type 'any', 'number', 'bigint' or an enum type. [plugin angular-compiler]
+
+    src/app/components/tracking-timeline.component.ts:29:6:
+      29 │       this.currentStep++;
+         ╵       ~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2365: Operator '>' cannot be applied to types 'WritableSignal<number>' and 'number'. [plugin angular-compiler]
+
+    src/app/components/tracking-timeline.component.ts:34:8:
+      34 │     if (this.currentStep > 0) {
+         ╵         ~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2356: An arithmetic operand must be of type 'any', 'number', 'bigint' or an enum type. [plugin angular-compiler]
+
+    src/app/components/tracking-timeline.component.ts:35:6:
+      35 │       this.currentStep--;
+         ╵       ~~~~~~~~~~~~~~~~
+
+
+Watch mode enabled. Watching for file changes...
+Rta/
+Opción 1: Usar Signal Correctamente (Recomendado para Angular 16+)
+🔧 tracking-timeline.component.ts
+
 ===============================================================
