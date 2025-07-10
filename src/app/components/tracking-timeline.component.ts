@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TrackingService } from './tracking.service';
 
 @Component({
   selector: 'app-tracking-timeline',
@@ -9,25 +10,27 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./tracking-timeline.component.scss'],
 })
 export class TrackingTimelineComponent {
-  steps = [
-    { label: 'Recibimos tu envío', date: '16/02/2024 11:55 a.m.' },
-    { label: 'Bodega de origen', date: '16/02/2024 06:04 p.m.' },
-    { label: 'Viajando', date: '17/02/2024 12:04 a.m.' },
-    { label: 'Bodega de destino', date: '17/02/2024 05:04 a.m.' },
-    { label: 'Entregado', date: '17/02/2024 8 a.m. - 10 a.m.' }
-  ];
+  steps = signal<{ label: string; date: string }[]>([]);
+  currentStep = signal(0);
 
-  currentStep = signal(0); // 👈 Signal en uso
+  constructor(private trackingService: TrackingService) {
+    this.loadSteps();
+  }
+
+  async loadSteps() {
+    const result = await this.trackingService.getTrackingSteps();
+    this.steps.set(result);
+  }
 
   nextStep() {
-    if (this.currentStep() < this.steps.length - 1) {
-      this.currentStep.set(this.currentStep() + 1); // ✅ correcto uso
+    if (this.currentStep() < this.steps().length - 1) {
+      this.currentStep.set(this.currentStep() + 1);
     }
   }
 
   prevStep() {
     if (this.currentStep() > 0) {
-      this.currentStep.set(this.currentStep() - 1); // ✅ correcto uso
+      this.currentStep.set(this.currentStep() - 1);
     }
   }
 }
