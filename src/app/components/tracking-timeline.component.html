@@ -1,6 +1,21 @@
-<div class="timeline-container">
+<!-- estado-envio.component.html -->
+<div *ngFor="let estado of estados" class="estado">
+  <h3>{{ estado.estado }}</h3>
+  <ul>
+    <li *ngIf="estado.porIniciar">Por Iniciar: {{ estado.porIniciar }}</li>
+    <li *ngIf="estado.recibimosTuEnvio">Recibimos: {{ estado.recibimosTuEnvio }}</li>
+    <li *ngIf="estado.bodegaOrigen">Bodega Origen: {{ estado.bodegaOrigen }}</li>
+    <li *ngIf="estado.viajando">Viajando: {{ estado.viajando }}</li>
+    <li *ngIf="estado.bodegaDestino">Bodega Destino: {{ estado.bodegaDestino }}</li>
+    <li *ngIf="estado.primerIntento">Primer Intento: {{ estado.primerIntento }}</li>
+    <li *ngIf="estado.reclamarOficina">Reclamar en Oficina: {{ estado.reclamarOficina }}</li>
+    <li *ngIf="estado.entregado">Entregado: {{ estado.entregado }}</li>
+  </ul>
+</div>
+
+
+<!-- <div class="timeline-container">
   <div class="timeline-line">
-    <!-- <div class="cart-icon" [style.left.%]="(100 / (steps().length - 1)) * currentStep()"></div> -->
     <div class="cart-icon" [style.left.%]="(100 / (steps().length - 1)) * currentStep()">      
       <svg width="53" height="77" viewBox="0 0 53 77" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <rect width="53" height="77" rx="16" fill="url(#pattern0_7362_1947)"/>
@@ -25,4 +40,4 @@
     <button (click)="prevStep()">Anterior</button>
     <button (click)="nextStep()">Siguiente</button>
   </div>
-</div>
+</div> -->

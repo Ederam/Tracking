@@ -1,6 +1,7 @@
 import { Component, signal, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TrackingService } from './tracking.service';
+import { EstadoEnvio } from '../models/estado-envio.dto';
 
 @Component({
   selector: 'app-tracking-timeline',
@@ -10,6 +11,17 @@ import { TrackingService } from './tracking.service';
   styleUrls: ['./tracking-timeline.component.scss'],
 })
 export class TrackingTimelineComponent {
+
+  estados: EstadoEnvio[] = [];
+
+  constructor(private trackingService: TrackingService) {}
+
+  ngOnInit(): void {
+    this.trackingService.obtenerEstados().subscribe((data) => {
+      this.estados = data;
+    });
+  }
+  /*
   steps = signal<{ label: string; date: string }[]>([]);
   currentStep = signal(0);
 
@@ -32,5 +44,5 @@ export class TrackingTimelineComponent {
     if (this.currentStep() > 0) {
       this.currentStep.set(this.currentStep() - 1);
     }
-  }
+  }*/
 }

@@ -72,3 +72,10 @@ Expón el componente principal como entry en el webpack.config.js.
 Crear el proyecto del Microfrontend
 npx @angular/cli@19 new tracking-mfe --standalone --routing --style=scss
 cd tracking-mfe
+
+-------------------------------------------
+mapeo de modelo de datos para pintar segun corresponda
+
+creacion de interface
+ng g interface models/estado-envio --type=dto
+

@@ -1,5 +1,9 @@
 // src/app/components/tracking.service.ts
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { EstadoEnvio } from '../models/estado-envio.dto';
+//import { estadosMock } from './mock-estados-envio';
+import { estadosMock } from '../models/mock-estados-envio';
 
 @Injectable({ providedIn: 'root' })
 export class TrackingService {
@@ -15,5 +19,9 @@ export class TrackingService {
         ]);
       }, 1000); // Simula una llamada a backend de 1 segundo
     });
+  }
+
+  obtenerEstados(): Observable<EstadoEnvio[]> {
+    return of(estadosMock);
   }
 }
