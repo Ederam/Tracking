@@ -18,7 +18,8 @@ export class TrackingTimelineComponent {
 
   ngOnInit(): void {
     this.trackingService.obtenerEstados().subscribe((data) => {
-      this.estados = data;
+      // Ensure data is always an array
+      this.estados = Array.isArray(data) ? data : [data];
     });
   }
   /*

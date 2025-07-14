@@ -21,7 +21,19 @@ export class TrackingService {
     });
   }
 
-  obtenerEstados(): Observable<EstadoEnvio[]> {
-    return of(estadosMock);
+  obtenerEstados(): Observable<EstadoEnvio> {
+  //obtenerEstados(): Observable<EstadoEnvio[]> {
+    console.log('estadosMock', estadosMock);
+    var result = this.getEstadoPorNombre('Envio-Exitoso');
+    console.log('result', result);
+    return of(result);
+    // return of(estadosMock);
   }
+
+  getEstadoPorNombre(estadoBuscado: string): any | null {
+  return estadosMock.find(e => e.estado === estadoBuscado) || null;
+}
+
+
+  
 }
